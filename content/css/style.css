@@ -1,0 +1,247 @@
+:root {
+	--scroll-progress: 0;
+}
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: max-content !important;
+	overflow-x: hidden;
+	background: #ffffff;
+}
+canvas {
+	display: block;
+}
+@font-face {
+	font-family: "entezar";
+	src: url("/content/ttf/EntezarB4_v2.0.1.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+p,
+h1,
+h2,
+h3,
+span {
+	font-family: "entezar", Arial, sans-serif !important;
+	direction: rtl;
+	color: white;
+}
+
+h1,
+h2,
+h3 {
+	font-size: min(2rem, 10vh, 10vw);
+}
+
+h1::before,
+h2::before,
+h3::before {
+	content: " •";
+	margin-right: 0;
+	margin-left: 0.5em;
+}
+#three-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 0;
+}
+
+canvas {
+	width: 100% !important;
+	height: 100% !important;
+	display: block;
+}
+
+arm {
+	display: flex;
+	position: fixed;
+	width: min(50vh, 50vw);
+	height: min(50vh, 50vw);
+	left: 50%;
+	top: calc(50% - var(--scroll-progress) * 190%);
+	transform: translate(-50%, -50%);
+	/* transform: translate(-50%, -50%)
+		scale(min(1, max(0.4, calc(2.7 - var(--scroll-progress) * 11)))); */
+	z-index: 1;
+	align-content: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.9;
+}
+
+.armBottom {
+	top: 50% !important;
+	opacity: calc(
+		max(-0.4 + var(--scroll-progress) * var(--scroll-progress), 0) * 2
+	);
+	z-index: 1;
+}
+p.scrollText {
+	position: fixed;
+	font-size: min(1.7rem, 4vh);
+	width: 100vw;
+	left: 0%;
+	top: 0%;
+	/* background-color: blueviolet; */
+	color: black;
+	text-align: center;
+	z-index: 1;
+	opacity: calc(1 - var(--scroll-progress) * 200);
+}
+space {
+	position: relative;
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+}
+banners {
+	overflow: hidden;
+	position: relative;
+	justify-content: center;
+	display: flex;
+	width: 100vw;
+	height: max-content;
+	z-index: 2;
+	will-change: transform;
+	flex-direction: column;
+	align-items: center;
+}
+.fillW {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+curveTop {
+	position: relative;
+	display: block;
+	width: 100vw;
+	height: calc(var(--scroll-progress) * min(30vh, 30vw));
+	z-index: 1;
+	background-image: url(/content/png/curve.png);
+	background-size: 100% 100%;
+	transform: translateY(2px);
+}
+curveBottom {
+	position: relative;
+	display: block;
+	width: 100vw;
+	height: calc((1 - var(--scroll-progress)) * min(30vh, 30vw));
+	z-index: 1;
+	background-image: url(/content/png/curve.png);
+	background-size: 100% 100%;
+	transform: rotate(180deg) translateY(2px);
+}
+safeFrame {
+	display: block;
+	box-sizing: border-box;
+	position: relative;
+	width: min(90vw, max(60vw, 50vh));
+}
+h1 {
+	width: 100%;
+}
+
+.list,
+.publication-list {
+	list-style: none;
+	padding: 0;
+}
+
+.list li {
+	background-color: #6d6d6d2a;
+	border-radius: 1rem;
+	margin-bottom: 10px;
+	padding: 15px;
+	transition: all 0.3s ease;
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+}
+.textLi {
+	transition: all 0.3s ease;
+	font-size: min(1.5rem, 5vh, 5vw);
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	width: 100%;
+}
+.list li:hover {
+	background-color: #6d6d6d4a;
+}
+
+.title {
+	font-weight: bold;
+	color: #c0c0c0;
+	flex-grow: 1;
+	margin-left: 10px;
+	line-height: 1.5;
+}
+
+.details {
+	font-size: min(1.2rem, 4vh, 4vw);
+	display: block;
+	font-size: 0.9em;
+	color: #555;
+	margin-top: 5px;
+	width: 100%;
+}
+
+.time {
+	opacity: 0.5;
+	position: relative;
+	color: #ffffff;
+	white-space: nowrap;
+	font-size: min(2rem, 10vh, 10vw);
+	padding: 0px 1%;
+	background-color: #000000;
+	border-radius: 3px;
+	align-self: flex-start;
+	order: -1;
+}
+
+.details a {
+	color: #1773d6;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.details a:hover {
+	text-decoration: underline;
+}
+
+.med {
+	color: #c0c0c0;
+	font-size: min(1.5rem, 5vh, 5vw);
+	line-height: min(2.7rem, 10vh, 10vw);
+}
+.image-holder {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 10px;
+}
+
+.image-holder img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+	.image-holder {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+	}
+}
