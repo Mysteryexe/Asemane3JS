@@ -18,25 +18,31 @@ canvas {
 	font-weight: normal;
 	font-style: normal;
 }
+
 p,
 h1,
 h2,
 h3,
+h4,
 span {
 	font-family: "entezar", Arial, sans-serif !important;
 	direction: rtl;
 	color: white;
 }
 
-h1,
+h1 {
+	text-align: center;
+	font-size: min(3.5rem, 15vh, 15vw);
+}
 h2,
-h3 {
+h3,
+h4 {
 	font-size: min(2rem, 10vh, 10vw);
 }
 
-h1::before,
 h2::before,
-h3::before {
+h3::before,
+h4::before {
 	content: " •";
 	margin-right: 0;
 	margin-left: 0.5em;
@@ -74,7 +80,13 @@ arm {
 	align-items: center;
 	opacity: 0.9;
 }
-
+arm p,
+arm a {
+	color: black !important;
+}
+arm a {
+	font-size: 5vh;
+}
 .armBottom {
 	top: 50% !important;
 	opacity: calc(
@@ -99,7 +111,10 @@ space {
 	display: block;
 	width: 100vw;
 	height: 100vh;
-	z-index: 2;
+	z-index: -2;
+	-webkit-user-select: none;
+	user-select: none;
+	touch-action: none;
 }
 banners {
 	overflow: hidden;
@@ -179,6 +194,23 @@ h1 {
 	background-color: #6d6d6d4a;
 }
 
+.phone-number {
+	color: #00b303 !important;
+	position: absolute;
+	left: 0;
+	letter-spacing: 0.2vw;
+	opacity: 0.5;
+}
+.phone-number::before {
+	content: "\f095"; /* This is the Unicode for the Font Awesome phone icon */
+	font-family: "FontAwesome";
+	margin-right: 5px; /* Adjust spacing between icon and text */
+	opacity: 0.4;
+	text-decoration: none !important;
+}
+.link {
+	display: flex;
+}
 .title {
 	font-weight: bold;
 	color: #c0c0c0;

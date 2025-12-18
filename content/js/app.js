@@ -144,7 +144,7 @@ function init() {
 				if (child.isMesh) {
 					child.castShadow = true;
 					child.receiveShadow = true;
-					child.material.opacity = 0.001;
+					child.material.opacity = 0;
 				}
 			});
 
